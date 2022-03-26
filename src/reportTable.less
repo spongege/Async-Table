@@ -1,0 +1,186 @@
+@BLACK: #000000;
+@BROWN: #993300;
+@OLIVE_GREEN: #333300;
+@DARK_GREEN: #003300;
+@DARK_TEAL: #003366;
+@DARK_BLUE: #000080;
+@INDIGO: #333399;
+@GREY_80_PERCENT: #333333;
+@ORANGE: #ff6600;
+@DARK_YELLOW: #808000;
+@GREEN: #008000;
+@TEAL: #008080;
+@BLUE: #0000ff;
+@BLUE_GREY: #666699;
+@GREY_50_PERCENT: #808080;
+@RED: #ff0000;
+@LIGHT_ORANGE: #ff9900;
+@LIME: #99cc00;
+@SEA_GREEN: #339966;
+@AQUA: #33cccc;
+@LIGHT_BLUE: #3366ff;
+@VIOLET: #800080;
+@GREY_40_PERCENT: #969696;
+@PINK: #ff00ff;
+@GOLD: #ffcc00;
+@YELLOW: #ffff00;
+@BRIGHT_GREEN: #00ff00;
+@TURQUOISE: #00ffff;
+@DARK_RED: #800000;
+@SKY_BLUE: #00ccff;
+@PLUM: #993366;
+@GREY_25_PERCENT: #c0c0c0;
+@ROSE: #ff99cc;
+@LIGHT_YELLOW: #ffff99;
+@LIGHT_GREEN: #ccffcc;
+@LIGHT_TURQUOISE: #ccffff;
+@PALE_BLUE: #99ccff;
+@LAVENDER: #cc99ff;
+@WHITE: #ffffff;
+@CORNFLOWER_BLUE: #9999ff;
+@LEMON_CHIFFON: #ffffcc;
+@MAROON: #7f0000;
+@ORCHID: #660066;
+@CORAL: #ff8080;
+@ROYAL_BLUE: #0066cc;
+@LIGHT_CORNFLOWER_BLUE: #ccccff;
+@TAN: #ffcc99;
+@AUTOMATIC: 'inherit';
+@DARK_BLUE: #547cb1;
+@LIGHT_BLUE: #e0edff;
+@LIGHTEST_BLUE: #f5f9ff;
+@GREY_5_PERCENT: #d8e0ec;
+@GREY_15_PERCENT: #f5f5f5;
+@TRANSPARENT: transparent;
+
+@set: {
+  1: @BLACK;
+  2: @RED;
+  3: @BRIGHT_GREEN;
+  4: @BLUE;
+  5: @YELLOW;
+  6: @PINK;
+  7: @TURQUOISE;
+  8: @BLACK;
+  9: @WHITE;
+  10: @RED;
+  11: @BRIGHT_GREEN;
+  12: @BLUE;
+  13: @YELLOW;
+  14: @PINK;
+  15: @TURQUOISE;
+  16: @DARK_RED;
+  17: @GREEN;
+  18: @DARK_BLUE;
+  19: @DARK_YELLOW;
+  20: @VIOLET;
+  21: @TEAL;
+  22: @GREY_25_PERCENT;
+  23: @GREY_50_PERCENT;
+  24: @CORNFLOWER_BLUE;
+  25: @MAROON;
+  26: @LEMON_CHIFFON;
+  27: @LIGHT_TURQUOISE;
+  28: @ORCHID;
+  29: @CORAL;
+  30: @ROYAL_BLUE;
+  31: @LIGHT_CORNFLOWER_BLUE;
+  40: @SKY_BLUE;
+  41: @LIGHT_TURQUOISE;
+  42: @LIGHT_GREEN;
+  43: @LIGHT_YELLOW;
+  44: @PALE_BLUE;
+  45: @ROSE;
+  46: @LAVENDER;
+  47: @TAN;
+  48: @LIGHT_BLUE;
+  49: @AQUA;
+  50: @LIME;
+  51: @GOLD;
+  52: @LIGHT_ORANGE;
+  53: @ORANGE;
+  54: @BLUE_GREY;
+  55: @GREY_40_PERCENT;
+  56: @DARK_TEAL;
+  57: @SEA_GREEN;
+  58: @DARK_GREEN;
+  59: @OLIVE_GREEN;
+  60: @BROWN;
+  61: @PLUM;
+  62: @INDIGO;
+  63: @GREY_80_PERCENT;
+  64: @AUTOMATIC;
+  65: @DARK_BLUE;
+  66: @LIGHT_BLUE;
+  67: @LIGHTEST_BLUE;
+  68: @GREY_5_PERCENT;
+  69: @GREY_15_PERCENT;
+  100: @TRANSPARENT;
+};
+
+.excel-bgc-default {
+  background-color: transparent !important;
+}
+each(@set, {
+  .excel-bgc-@{key} {
+    background-color: @value !important; 
+  }
+  .excel-color-@{key} {
+    color: @value;
+  }
+  .excel-border-top-color-@{key}{ 
+    border-top: 1px solid @value !important; 
+  }
+  .excel-border-left-color-@{key}{
+    border-left: 1px solid @value !important; 
+  } 
+  .excel-border-bottom-color-@{key}{
+    border-bottom: 1px solid @value!important; 
+  }
+   .excel-border-right-color-@{key}{
+    border-right: 1px solid @value !important; 
+  }
+});
+
+.excel-bold-true {
+  font-weight: 700;
+}
+
+.excel-vertical-align-top {
+  vertical-align: top;
+}
+.excel-vertical-align-middle {
+  vertical-align: middle;
+}
+.excel-vertical-align-bottom {
+  vertical-align: bottom;
+}
+.excel-horizontal-align-left {
+  text-align: left;
+}
+.excel-horizontal-align-center {
+  text-align: center;
+}
+.excel-horizontal-align-right {
+  text-align: right;
+}
+
+.excel-SQUARE {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+  vertical-align: text-top;
+}
+
+.customTable td {
+  display: table-cell;
+  padding: 8px;
+  border: 1px solid #f0f0f0;
+}
+.customTable {
+  table {
+    width: 100%;
+    // table-layout: fixed;
+  }
+}
