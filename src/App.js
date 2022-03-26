@@ -1,5 +1,6 @@
-import CustomTable from './customTable';
-import data from './data';
+import CustomTable from './core/customTable';
+// import data from './data/smallData';
+import data from './data/bigData';
 
 function App() {
 	return (

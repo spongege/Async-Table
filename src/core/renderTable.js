@@ -229,7 +229,7 @@ function creatStrategiesMap(data, strategies, instance) {
 				// 数据格式化
 				if (dataFormat !== undefined && BuiltinFormatsMap[dataFormat]) {
 					format = BuiltinFormatsMap[dataFormat];
-					console.log(format);
+					// console.log(format);
 				}
 
 				// 根据style构造className

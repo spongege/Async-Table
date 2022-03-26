@@ -14,13 +14,13 @@ export default {
 		ns.toClean(data, {
 			maxPrecision: 2,
 			minPrecision: 2,
-			thousandSeperator: '',
+			thousandSeparator: '',
 		}),
 
 	// 3: #,##0 【千分逗号】
 	3: data =>
 		ns.toClean(data, {
-			thousandSeperator: ',',
+			thousandSeparator: ',',
 		}),
 
 	// 4: #,##0.00 【保留2位小数，千分逗号】
@@ -28,7 +28,7 @@ export default {
 		ns.toClean(data, {
 			maxPrecision: 2,
 			minPrecision: 2,
-			thousandSeperator: ',',
+			thousandSeparator: ',',
 		}),
 
 	// 5: \"￥\"#,##0_);(\"￥\"#,##0)
@@ -37,7 +37,7 @@ export default {
 			symbol: '¥',
 			maxPrecision: 0,
 			minPrecision: 0,
-			thousandSeperator: ',',
+			thousandSeparator: ',',
 		}),
 
 	// 6: \"￥\"#,##0_);[Red](\"￥\"#,##0)
@@ -48,7 +48,7 @@ export default {
 			symbol: '¥',
 			maxPrecision: 2,
 			minPrecision: 2,
-			thousandSeperator: ',',
+			thousandSeparator: ',',
 		}),
 
 	// 8: \"￥\"#,##0.00_);[Red](\"￥\"#,##0.00)
@@ -220,13 +220,13 @@ export default {
 			symbol: '$',
 			maxPrecision: 0,
 			minPrecision: 0,
-			thousandSeperator: ',',
+			thousandSeparator: ',',
 		}),
 	165: data =>
 		ns.toMoney(data, {
 			symbol: '$',
 			maxPrecision: 2,
 			minPrecision: 0,
-			thousandSeperator: ',',
+			thousandSeparator: ',',
 		}),
 };
