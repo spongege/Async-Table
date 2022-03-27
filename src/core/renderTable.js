@@ -31,9 +31,6 @@ function renderRow(rowData, rowIndex, instance) {
 			(colSpan > 0 || colSpan === undefined) &&
 			(rowSpan > 0 || rowSpan === undefined)
 		) {
-			//   const colSpanStr = colSpan ? `colSpan='${colSpan}'` : '';
-			//   const rowSpanStr = colSpan ? `rowSpan='${rowSpan}'` : '';
-			//   const classNameStr = className ? `class='${className}'` : '';
 			const td = document.createElement('td');
 			if (colSpan) {
 				td.setAttribute('colSpan', colSpan);
@@ -65,51 +62,58 @@ function renderRow(rowData, rowIndex, instance) {
 				td.className = className;
 			}
 			tr.appendChild(td);
-			//   rowSpanStr&&td.setAttribute()
-			//   const a = `<td ${rowSpanStr} ${colSpanStr} ${classNameStr} >`;
-			//   const b = format ? format(rowData[i]) : rowData[i];
-			//   const str = b === null ? '' : b;
-			//   const c = '</td>';
-
-			//   tdStr += a + str + c;
 		}
 	}
 
-	//   console.time('innerHtml');
-	// //   tr.innerHTML = tdStr;
-	//   console.timeEnd('innerHtml');
 	return tr;
 }
-function test(data, table, index, instance) {
-	if (!instance || instance.isStoppingTask) {
-		console.log('isStoppingTask');
-		return;
-	}
-
-	const start = +new Date();
-	let i = index;
-	do {
-		const rowData = data?.[i];
-		if (rowData) {
-			//   console.time('render');
-			const tr = renderRow(rowData, i, instance);
-			table.appendChild(tr);
-			//   console.timeEnd('render');
-
-			i++;
+// function test(data, table, index, instance) {
+// 	if (!instance || instance.isStoppingTask) {
+// 		console.log('isStoppingTask');
+// 		return;
+// 	}
+// 	const start = +new Date();
+// 	let i = index;
+// 	do {
+// 		const rowData = data?.[i];
+// 		if (rowData) {
+// 			//   console.time('render');
+// 			const tr = renderRow(rowData, i, instance);
+// 			table.appendChild(tr);
+// 			//   console.timeEnd('render');
+// 			i++;
+// 		}
+// 	} while (data.length - index >= 0 && +new Date() - start < 16);
+// 	console.log('timeRange', start, +new Date(), i);
+// 	if (data[i] && data.length - index >= 0) {
+// 		// eslint-disable-next-line no-caller
+// 		window.requestIdleCallback(() => {
+// 			test(data, table, i, instance);
+// 		});
+// 	}
+// }
+function asyncRender(data, table, instance) {
+	const WAIT = 2;
+	const len = data.length;
+	let i = 0;
+	const idleCallback = IdleDeadline => {
+		while (IdleDeadline.timeRemaining() > WAIT && i < len) {
+			const rowData = data?.[i];
+			if (rowData) {
+				const tr = renderRow(rowData, i, instance);
+				table.appendChild(tr);
+				i++;
+			}
 		}
-	} while (data.length - index >= 0 && +new Date() - start < 16);
-	console.log('timeRange', start, +new Date(), i);
-	if (data[i] && data.length - index >= 0) {
-		// eslint-disable-next-line no-caller
-		window.requestIdleCallback(() => {
-			test(data, table, i, instance);
-		});
-	}
+		console.log('timeRange', i);
+		if (i >= len) return;
+		window.requestIdleCallback(idleCallback);
+	};
+	window.requestIdleCallback(idleCallback);
 }
-
 function timedProcessArray(data, table, instance) {
-	test(data, table, 0, instance);
+	// test(data, table, 0, instance);
+	asyncRender(data, table, instance);
 }
 const getStrategy = (strategy1, strategy2) => {
 	const attrArr = [
@@ -229,7 +233,6 @@ function creatStrategiesMap(data, strategies, instance) {
 				// 数据格式化
 				if (dataFormat !== undefined && BuiltinFormatsMap[dataFormat]) {
 					format = BuiltinFormatsMap[dataFormat];
-					// console.log(format);
 				}
 
 				// 根据style构造className
@@ -244,7 +247,6 @@ function creatStrategiesMap(data, strategies, instance) {
 				}
 				// 总觉得这种方式有点不优雅，less会自动生成许多无用的css选择器，遇到border: px soild color 这种属性复杂度就会变成n方
 				// 尝试过style 来做处理，但是antd 不支持style 强行传也会被omit掉，
-				// 目前还没有遇到 颜色和粗细同时用的时候 留个todo
 				if (leftBorderColor >= 0 && fillForegroundColor !== null) {
 					className.push(`excel-border-left-color-${leftBorderColor}`);
 				}
