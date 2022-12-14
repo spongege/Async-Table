@@ -54,75 +54,72 @@
 @TRANSPARENT: transparent;
 
 @set: {
-	1: @BLACK;
-	2: @RED;
-	3: @BRIGHT_GREEN;
-	4: @BLUE;
-	5: @YELLOW;
-	6: @PINK;
-	7: @TURQUOISE;
-	8: @BLACK;
-	9: @WHITE;
-	10: @RED;
-	11: @BRIGHT_GREEN;
-	12: @BLUE;
-	13: @YELLOW;
-	14: @PINK;
-	15: @TURQUOISE;
-	16: @DARK_RED;
-	17: @GREEN;
-	18: @DARK_BLUE;
-	19: @DARK_YELLOW;
-	20: @VIOLET;
-	21: @TEAL;
-	22: @GREY_25_PERCENT;
-	23: @GREY_50_PERCENT;
-	24: @CORNFLOWER_BLUE;
-	25: @MAROON;
-	26: @LEMON_CHIFFON;
-	27: @LIGHT_TURQUOISE;
-	28: @ORCHID;
-	29: @CORAL;
-	30: @ROYAL_BLUE;
-	31: @LIGHT_CORNFLOWER_BLUE;
-	40: @SKY_BLUE;
-	41: @LIGHT_TURQUOISE;
-	42: @LIGHT_GREEN;
-	43: @LIGHT_YELLOW;
-	44: @PALE_BLUE;
-	45: @ROSE;
-	46: @LAVENDER;
-	47: @TAN;
-	48: @LIGHT_BLUE;
-	49: @AQUA;
-	50: @LIME;
-	51: @GOLD;
-	52: @LIGHT_ORANGE;
-	53: @ORANGE;
-	54: @BLUE_GREY;
-	55: @GREY_40_PERCENT;
-	56: @DARK_TEAL;
-	57: @SEA_GREEN;
-	58: @DARK_GREEN;
-	59: @OLIVE_GREEN;
-	60: @BROWN;
-	61: @PLUM;
-	62: @INDIGO;
-	63: @GREY_80_PERCENT;
-	64: @AUTOMATIC;
-	65: @DARK_BLUE;
-	66: @LIGHT_BLUE;
-	67: @LIGHTEST_BLUE;
-	68: @GREY_5_PERCENT;
-	69: @GREY_15_PERCENT;
-	100: @TRANSPARENT;
+  1: @BLACK;
+  2: @RED;
+  3: @BRIGHT_GREEN;
+  4: @BLUE;
+  5: @YELLOW;
+  6: @PINK;
+  7: @TURQUOISE;
+  8: @BLACK;
+  9: @WHITE;
+  10: @RED;
+  11: @BRIGHT_GREEN;
+  12: @BLUE;
+  13: @YELLOW;
+  14: @PINK;
+  15: @TURQUOISE;
+  16: @DARK_RED;
+  17: @GREEN;
+  18: @DARK_BLUE;
+  19: @DARK_YELLOW;
+  20: @VIOLET;
+  21: @TEAL;
+  22: @GREY_25_PERCENT;
+  23: @GREY_50_PERCENT;
+  24: @CORNFLOWER_BLUE;
+  25: @MAROON;
+  26: @LEMON_CHIFFON;
+  27: @LIGHT_TURQUOISE;
+  28: @ORCHID;
+  29: @CORAL;
+  30: @ROYAL_BLUE;
+  31: @LIGHT_CORNFLOWER_BLUE;
+  40: @SKY_BLUE;
+  41: @LIGHT_TURQUOISE;
+  42: @LIGHT_GREEN;
+  43: @LIGHT_YELLOW;
+  44: @PALE_BLUE;
+  45: @ROSE;
+  46: @LAVENDER;
+  47: @TAN;
+  48: @LIGHT_BLUE;
+  49: @AQUA;
+  50: @LIME;
+  51: @GOLD;
+  52: @LIGHT_ORANGE;
+  53: @ORANGE;
+  54: @BLUE_GREY;
+  55: @GREY_40_PERCENT;
+  56: @DARK_TEAL;
+  57: @SEA_GREEN;
+  58: @DARK_GREEN;
+  59: @OLIVE_GREEN;
+  60: @BROWN;
+  61: @PLUM;
+  62: @INDIGO;
+  63: @GREY_80_PERCENT;
+  64: @AUTOMATIC;
+  65: @DARK_BLUE;
+  66: @LIGHT_BLUE;
+  67: @LIGHTEST_BLUE;
+  68: @GREY_5_PERCENT;
+  69: @GREY_15_PERCENT;
+  100: @TRANSPARENT;
 };
 
-table {
-	border-collapse: collapse;
-}
 .excel-bgc-default {
-	background-color: transparent !important;
+  background-color: transparent !important;
 }
 each(@set, {
   .excel-bgc-@{key} {
@@ -146,44 +143,44 @@ each(@set, {
 });
 
 .excel-bold-true {
-	font-weight: 700;
+  font-weight: 700;
 }
 
 .excel-vertical-align-top {
-	vertical-align: top;
+  vertical-align: top;
 }
 .excel-vertical-align-middle {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 .excel-vertical-align-bottom {
-	vertical-align: bottom;
+  vertical-align: bottom;
 }
 .excel-horizontal-align-left {
-	text-align: left;
+  text-align: left;
 }
 .excel-horizontal-align-center {
-	text-align: center;
+  text-align: center;
 }
 .excel-horizontal-align-right {
-	text-align: right;
+  text-align: right;
 }
 
 .excel-SQUARE {
-	display: inline-block;
-	width: 14px;
-	height: 14px;
-	margin-right: 4px;
-	vertical-align: text-top;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+  vertical-align: text-top;
 }
 
 .customTable td {
-	display: table-cell;
-	padding: 8px;
-	border: 1px solid #f0f0f0;
+  display: table-cell;
+  padding: 8px;
+  border: 1px solid #f0f0f0;
 }
 .customTable {
-	table {
-		width: 100%;
-		// table-layout: fixed;
-	}
+  table {
+    width: 100%;
+    // table-layout: fixed;
+  }
 }
